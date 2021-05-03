@@ -1,9 +1,11 @@
 import react from 'react';
+import PageCadastro from './Pages/page-cadastro-cliente/index';
+import './app.css';
 
 function App() {
   return (
-    <div>
-      <h1>Testando</h1>
+    <div className="app-block">
+      <PageCadastro />
     </div>
   );
 }
