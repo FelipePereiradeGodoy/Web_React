@@ -25,12 +25,10 @@ form {
     display: flex;
     flex-direction: column;
     height: 10%;
+    width: 50%;
     margin: 0%;
     padding: 0%;
-}
-
-#input-nome{
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
 .label-block {
