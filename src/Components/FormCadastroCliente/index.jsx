@@ -4,18 +4,69 @@ import './FormCadastroCliente.css';
 
 const FormCadastroCliente = () => {
     return (
-        <div className="form-block">
-            <form action="">
+        <form action="" method="POST">
 
-                <Input name="nome" textLabel="Nome:" placeholder="Fulano de tal" className="input-nome-block" />
-                <Input name="cpf" textLabel="cpf:" placeholder="Fulano de tal" className="input-cpf-block" />
-                <Input name="rg" textLabel="rg:" placeholder="Fulano de tal" className="input-rg-block" />
-                <Input name="email" textLabel="email:" placeholder="Fulano de tal" className="input-email-block" />
-                <Input name="telefone1" textLabel="telefone1:" placeholder="Fulano de tal" className="input-telefone1-block" />
-                <Input name="dataNasc" textLabel="dataNasc:" placeholder="Fulano de tal" className="input-dataNasc-block" />
+            <Input
+                name="nome"
+                textLabel="Nome:"
+                placeholder="Fulano de tal"
+                id="input-nome"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
 
-            </form>
-        </div>
+            <Input
+                name="cpf"
+                textLabel="CPF:"
+                placeholder="Fulano de tal"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
+
+            <Input
+                name="rg"
+                textLabel="RG:"
+                placeholder="Fulano de tal"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
+
+            <Input
+                name="email"
+                textLabel="Email:"
+                placeholder="Fulano de tal"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
+
+            <Input
+                name="telefone1"
+                textLabel="Telefone1:"
+                placeholder="Fulano de tal"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
+
+            <Input
+                name="dataNasc"
+                textLabel="Data Nascimento:"
+                placeholder="Fulano de tal"
+                classDiv="div-input-block"
+                classLabel="label-block"
+                classInput="input-block"
+            />
+
+            <button className="btn-salvar">
+                Salvar
+            </button>
+
+        </form>
+
     );
 }
 
