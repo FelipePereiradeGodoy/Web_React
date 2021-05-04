@@ -8,7 +8,7 @@ const CadastroCliente = () => {
     const [rg, setRg] = useState("");
     const [email, setEmail] = useState("");
     const [telefone1, setTelefone1] = useState("");
-    const [dataNasc, setDataNasc] = useState(new Date);
+    const [dataNasc, setDataNasc] = useState();
 
     return (
         <div className="page-cadastro-cliente-block">
