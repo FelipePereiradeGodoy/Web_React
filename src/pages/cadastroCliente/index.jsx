@@ -9,22 +9,20 @@ const CadastroCliente = () => {
     const [rg, setRg] = useState("");
     const [email, setEmail] = useState("");
     const [telefone1, setTelefone1] = useState("");
-    const [dataNasc, setDataNasc] = useState();
+    const [dataNasc, setDataNasc] = useState("");
 
 
     const handleInsertCliente = (event) => {
         event.preventDefault();
 
-        console.log(returnObjCliente());
-
-        //api.post('clientes', { returnObjCliente }).
-        //    then(() => {
-        //        alert("Cadastro realizado com sucesso!");
-        //        history.push('/');
-        //    }).
-        //    catch(() => {
-        //        alert("Erro ao tentar realizar cadastro!");
-        //    });
+        api.post('clientes', returnObjCliente()).
+            then(() => {
+                alert("Cadastro realizado com sucesso!");
+            }).
+            catch((error) => {
+                alert(error);
+                console.log(error);
+            });
     }
 
 
@@ -79,7 +77,7 @@ const CadastroCliente = () => {
                 />
 
                 <Input
-                    type="email"
+                    type="text"
                     name="email"
                     textLabel="Email:"
                     placeholder="Fulano de tal"
@@ -101,8 +99,8 @@ const CadastroCliente = () => {
                 />
 
                 <Input
-                    type="date"
-                    name="dataNasc"
+                    //type="date"
+                    name="text"
                     textLabel="Data Nascimento:"
                     placeholder="Fulano de tal"
                     classDiv="div-input-block"
