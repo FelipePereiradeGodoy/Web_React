@@ -1,6 +1,6 @@
 .pageLogin-block{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: green;
     display: flex;
     justify-content: center;
@@ -12,11 +12,35 @@
 
 form {
     background: whitesmoke;
-    width: 35%;
-    height: 98%;
+    width: 30%;
+    height: 55%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     border-radius: 5%;
+}
+
+.div-input-block {
+    width: 80%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    margin-top: 5%;
+    padding: 0%;
+}
+
+.btn-sigin{
+    width: 20%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin: 0%;
+    margin-left: 10.5%;
+    margin-top: 5%;
+    padding: 0%;
 }

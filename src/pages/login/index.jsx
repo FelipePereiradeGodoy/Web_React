@@ -21,7 +21,7 @@ const PageLogin = () => {
                     name="userName"
                     textLabel="UserName:"
                     placeholder="felipe.godoy"
-                    classDiv="div-userName-block"
+                    classDiv="div-input-block"
                     classLabel="lbl-userName"
                     classInput="input-userName"
                     onChange={(e) => { setUserName(e.target.value) }}
@@ -31,7 +31,7 @@ const PageLogin = () => {
                     type="password"
                     textLabel="Password:"
                     placeholder="*****"
-                    classDiv="div-password-block"
+                    classDiv="div-input-block"
                     classLabel="lbl-password"
                     classInput="input-password"
                     onChange={(e) => { setPassword(e.target.value) }}
