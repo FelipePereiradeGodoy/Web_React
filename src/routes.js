@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import PageCadastroCliente from './pages/cadastroCliente/index';
-import PageLogin from './pages/login/index';
+import Login from './pages/login/index';
+import RegistrationCustomers from './pages/registrationCustomers/index';
+import ListCustomers from './pages/listCustomers/index';
 
 
 const Routes = () => {
     return (
         <BrowserRouter>
 
-            <Route path="/" exact component={PageLogin} />
-            <Route path="/cadastroCliente" component={PageCadastroCliente} />
+            <Route path="/" exact component={Login} />
+            <Route path="/cadastroCliente" component={RegistrationCustomers} />
+            <Route path="/listaClientes" component={ListCustomers} />
 
         </BrowserRouter>
     );

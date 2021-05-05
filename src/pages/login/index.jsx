@@ -11,7 +11,7 @@ const PageLogin = () => {
     const handleLogin = (event) => {
 
         if (userName === "felipe" && password === "123")
-            history.push("cadastroCliente");
+            history.push("listaClientes");
         else {
             event.prevent.Default();
             alert("Usuario ou senha incorreto!");
