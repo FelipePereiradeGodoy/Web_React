@@ -1,41 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
+import api from '../../services/api';
 import './styles.css';
 
-const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'firstName', headerName: 'First name', width: 130 },
-    { field: 'lastName', headerName: 'Last name', width: 130 },
-    {
-        field: 'age',
-        headerName: 'Age',
-        type: 'number',
-        width: 90,
-    },
-    {
-        field: 'fullName',
-        headerName: 'Full name',
-        description: 'This column has a value getter and is not sortable.',
-        sortable: false,
-        width: 160,
-        valueGetter: (params) =>
-            `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
-    },
-];
-
-const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
 
 const ListCustomers = () => {
+    const cpfCliente = "xxx.xxx.xxx-xx";
+
+    useEffect(() => {
+        // auto invoked
+        (async () => {
+            try {
+                const response = await api.get('clientes')
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        })()
+    }, []);
+
+
+    const columns = [
+        { field: 'idCliente', headerName: 'idCliente', width: 110 },
+        { field: 'nome', headerName: 'Nome', width: 130 },
+        { field: 'cpf', headerName: 'CPF', width: 130 },
+        { field: 'rg', headerName: 'RG', type: '', width: 130 },
+        { field: 'email', headerName: 'Email', type: '', width: 130 },
+        { field: 'telefone1', headerName: 'Telefone1', type: '', width: 130 },
+        { field: 'dataNasc', headerName: 'Data Nascimento', type: '', width: 170 },
+    ];
+
+    const rows = [
+        { idCliente: 0, nome: 'Jon', cpf: '000.000.000-00' },
+        { idCliente: 1, nome: 'Cersei', cpf: '111.111.111-11' },
+        { idCliente: 2, nome: 'Jaime', cpf: '222.222.222-22' },
+        { idCliente: 3, nome: 'Arya', cpf: '333.333.333-22' },
+        { idCliente: 4, nome: 'Daenerys', cpf: cpfCliente },
+        { idCliente: 5, nome: 'Fon', cpf: cpfCliente },
+        { idCliente: 6, nome: 'Ferrara', cpf: cpfCliente },
+        { idCliente: 7, nome: 'Rossini', cpf: cpfCliente },
+        { idCliente: 8, nome: 'Harvey', cpf: cpfCliente },
+        { idCliente: 9, nome: 'Batman', cpf: cpfCliente },
+    ];
+
 
     return (
         <div id="listCustomers-block">
@@ -45,7 +52,7 @@ const ListCustomers = () => {
             </div>
 
             <div className="table-listCustomers-block">
-                <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+                <DataGrid getRowId={(rows) => rows.idCliente} rows={rows} columns={columns} pageSize={7} checkboxSelection />
             </div>
 
         </div>
