@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Input from '../../components/input/index';
 import api from '../../services/api';
 import './styles.css';
@@ -15,11 +15,11 @@ const CadastroCliente = () => {
     const handleInsertCliente = (event) => {
         event.preventDefault();
 
-        api.post('clientes', returnObjCliente()).
-            then(() => {
+        api.post('clientes', returnObjCliente())
+            .then(() => {
                 alert("Cadastro realizado com sucesso!");
-            }).
-            catch((error) => {
+            })
+            .catch((error) => {
                 alert(error);
                 console.log(error);
             });

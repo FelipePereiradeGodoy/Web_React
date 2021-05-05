@@ -1,16 +1,20 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import Input from '../../components/input/index';
 import './styles.css';
 
 const PageLogin = () => {
+    const history = useHistory();
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = (event) => {
-        event.prevent.Default();
+        //event.prevent.Default();
 
-        alert("UserName: " + userName);
-        alert("Password: " + password);
+        if (userName === "felipe" && password === "123")
+            history.push("cadastroCliente");
+        else
+            alert("Usuario ou senha incorreto!");
     };
 
     return (
