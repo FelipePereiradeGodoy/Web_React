@@ -40,17 +40,17 @@ const CadastroCliente = () => {
     }
 
     return (
-        <div className="page-cadastro-cliente-block">
-            <form onSubmit={handleInsertCliente}>
+        <div className="page-cadastrocliente-block">
+            <form id="form-cadastroCliente" onSubmit={handleInsertCliente}>
 
                 <Input
                     type="text"
                     name="nome"
                     textLabel="Nome:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setNome(e.target.value) }}
                 />
 
@@ -59,9 +59,9 @@ const CadastroCliente = () => {
                     name="cpf"
                     textLabel="CPF:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setCpf(e.target.value) }}
                 />
 
@@ -70,9 +70,9 @@ const CadastroCliente = () => {
                     name="rg"
                     textLabel="RG:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setRg(e.target.value) }}
                 />
 
@@ -81,9 +81,9 @@ const CadastroCliente = () => {
                     name="email"
                     textLabel="Email:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setEmail(e.target.value) }}
                 />
 
@@ -92,9 +92,9 @@ const CadastroCliente = () => {
                     name="telefone1"
                     textLabel="Telefone1:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setTelefone1(e.target.value) }}
                 />
 
@@ -103,13 +103,13 @@ const CadastroCliente = () => {
                     name="text"
                     textLabel="Data Nascimento:"
                     placeholder="Fulano de tal"
-                    classDiv="div-input-block"
-                    classLabel="label-block"
-                    classInput="input-block"
+                    classDiv="div-input-block-cadastroCliente"
+                    classLabel="label-block-cadastroCliente"
+                    classInput="input-block-cadastroCliente"
                     onChange={(e) => { setDataNasc(e.target.value) }}
                 />
 
-                <button className="btn-salvar" type="submit">
+                <button className="btn-salvar-cadastroCliente" type="submit">
                     Salvar
             </button>
 

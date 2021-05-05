@@ -10,7 +10,7 @@
     border: 0%;
 }
 
-form {
+#form-login {
     background: whitesmoke;
     width: 30%;
     height: 55%;
@@ -21,7 +21,7 @@ form {
     border-radius: 5%;
 }
 
-.div-input-block {
+.div-input-block-login {
     width: 80%;
     height: 25%;
     display: flex;
@@ -31,7 +31,7 @@ form {
     padding: 0%;
 }
 
-.btn-sigin{
+.btn-sigin-login {
     width: 20%;
     height: 8%;
     display: flex;

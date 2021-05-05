@@ -9,25 +9,27 @@ const PageLogin = () => {
     const [password, setPassword] = useState("");
 
     const handleLogin = (event) => {
-        //event.prevent.Default();
 
         if (userName === "felipe" && password === "123")
             history.push("cadastroCliente");
-        else
+        else {
+            event.prevent.Default();
             alert("Usuario ou senha incorreto!");
+        }
+
     };
 
     return (
         <div className="pageLogin-block">
-            <form onSubmit={handleLogin}>
+            <form id="form-login" onSubmit={handleLogin}>
 
                 <Input
                     name="userName"
                     textLabel="UserName:"
                     placeholder="felipe.godoy"
-                    classDiv="div-input-block"
-                    classLabel="lbl-userName"
-                    classInput="input-userName"
+                    classDiv="div-input-block-login"
+                    classLabel="lbl-userName-login"
+                    classInput="input-userName-login"
                     onChange={(e) => { setUserName(e.target.value) }}
                 />
 
@@ -35,13 +37,13 @@ const PageLogin = () => {
                     type="password"
                     textLabel="Password:"
                     placeholder="*****"
-                    classDiv="div-input-block"
-                    classLabel="lbl-password"
-                    classInput="input-password"
+                    classDiv="div-input-block-login"
+                    classLabel="lbl-password-login"
+                    classInput="input-password-login"
                     onChange={(e) => { setPassword(e.target.value) }}
                 />
 
-                <button type="submit" class="btn-sigin">
+                <button type="submit" class="btn-sigin-login">
                     Sig in
             </button>
 

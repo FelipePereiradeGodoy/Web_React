@@ -1,4 +1,4 @@
-.page-cadastro-cliente-block{
+.page-cadastrocliente-block{
     width: 100vw;
     height: 100vh;
     background: green;
@@ -10,10 +10,10 @@
     border: 0%;
 }
 
-form {
-    background: red;
+#form-cadastroCliente {
+    background: whitesmoke;
     width: 35%;
-    height: 50%;
+    height: 96%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -21,7 +21,7 @@ form {
     border-radius: 5%;
 }
 
-.div-input-block {
+.div-input-block-cadastroCliente {
     display: flex;
     flex-direction: column;
     height: 10%;
@@ -31,13 +31,13 @@ form {
     margin-top: 2%;
 }
 
-.label-block {
+.label-block-cadastroCliente {
     padding: 0%;
     margin: 0%;
     margin-bottom: 1%;
 } 
 
-.input-block {
+.input-block-cadastroCliente {
     padding: 0%;
     margin: 0%;
     width: 100%;
@@ -45,7 +45,7 @@ form {
     border-radius: 8px;
 }
 
-.btn-salvar{
+.btn-salvar-cadastroCliente{
     margin: 0%;
     padding: 0%;
     height: 5%;
