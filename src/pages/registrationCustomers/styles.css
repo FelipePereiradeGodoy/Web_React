@@ -28,7 +28,7 @@
     width: 50%;
     margin: 0%;
     padding: 0%;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .label-block-registrationCustomers {
@@ -46,6 +46,7 @@
 }
 
 .btn-salvar-registrationCustomers{
+    background-color: rgba(0,255,0);
     margin: 0%;
     padding: 0%;
     height: 5%;
@@ -55,6 +56,22 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    right: 14%;
+    right: 15%;
+}
+
+.btn-salvar-registrationCustomers:hover{
+    background-color: rgba(50,205,50);
+}
+
+#btn-registration-exit {
+    width: 3%;
+    height: 7%;
+    align-self: flex-start;
+    position: absolute;
+    margin: 0%;
+    margin-left: 2%;
+    padding: 0%;
+    top: 5%;
+    border-radius: 10px !important;
 }
 

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Input from '../../components/input/index';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import api from '../../services/api';
 import './styles.css';
+import { useHistory } from 'react-router';
 
 const RegistrationCustomers = () => {
+    const history = useHistory();
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
     const [rg, setRg] = useState("");
@@ -25,7 +28,6 @@ const RegistrationCustomers = () => {
             });
     }
 
-
     const returnObjCliente = () => {
         const cliente = {
             nome: nome,
@@ -42,6 +44,11 @@ const RegistrationCustomers = () => {
     return (
         <div className="page-registrationCustomers-block">
             <form id="form-registrationCustomers" onSubmit={handleInsertCliente}>
+
+                <button id="btn-registration-exit" className="btn-menuNavBar" onClick={() => { history.push("listaClientes") }}>
+                    <ExitToAppIcon id="icons-menuNavBar-exit" className="icons-menuNavBar" />
+                </button>
+
 
                 <Input
                     type="text"

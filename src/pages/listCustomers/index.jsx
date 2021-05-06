@@ -1,58 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
+import { format } from 'date-fns';
+import MenuNavBar from '../../components/menuNavBar/index';
 import api from '../../services/api';
 import './styles.css';
 
 
+const columns = [
+    { field: 'idCliente', headerName: 'idCliente', width: 110 },
+    { field: 'nome', headerName: 'Nome', width: 130 },
+    { field: 'cpf', headerName: 'CPF', width: 130 },
+    { field: 'rg', headerName: 'RG', type: '', width: 130 },
+    { field: 'email', headerName: 'Email', type: '', width: 130 },
+    { field: 'telefone1', headerName: 'Telefone1', type: '', width: 130 },
+    { field: 'dataNasc', headerName: 'Data Nascimento', type: '', width: 170 },
+];
+
+
 const ListCustomers = () => {
-    const cpfCliente = "xxx.xxx.xxx-xx";
+    const [rows, setRows] = useState([]);
+    const [idClienteSelecionados, setIdClienteSelecionados] = useState([]);
+
 
     useEffect(() => {
         // auto invoked
         (async () => {
             try {
                 const response = await api.get('clientes')
-                console.log(response.data)
+
+                response.data.map((customer) => {
+                    return customer.dataNasc = format(new Date(customer.dataNasc), 'dd/MM/yyyy');
+                });
+
+                setRows(response.data);
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
         })()
+
     }, []);
 
 
-    const columns = [
-        { field: 'idCliente', headerName: 'idCliente', width: 110 },
-        { field: 'nome', headerName: 'Nome', width: 130 },
-        { field: 'cpf', headerName: 'CPF', width: 130 },
-        { field: 'rg', headerName: 'RG', type: '', width: 130 },
-        { field: 'email', headerName: 'Email', type: '', width: 130 },
-        { field: 'telefone1', headerName: 'Telefone1', type: '', width: 130 },
-        { field: 'dataNasc', headerName: 'Data Nascimento', type: '', width: 170 },
-    ];
+    const addIdClienteSelected = (cellSelection) => {
+        try {
+            const { idCliente } = cellSelection.row; //pego o id da linha selecionada
+            const newListIdCliente = idClienteSelecionados.slice(); // copio o array do meu state que está inicialmente vazio
 
-    const rows = [
-        { idCliente: 0, nome: 'Jon', cpf: '000.000.000-00' },
-        { idCliente: 1, nome: 'Cersei', cpf: '111.111.111-11' },
-        { idCliente: 2, nome: 'Jaime', cpf: '222.222.222-22' },
-        { idCliente: 3, nome: 'Arya', cpf: '333.333.333-22' },
-        { idCliente: 4, nome: 'Daenerys', cpf: cpfCliente },
-        { idCliente: 5, nome: 'Fon', cpf: cpfCliente },
-        { idCliente: 6, nome: 'Ferrara', cpf: cpfCliente },
-        { idCliente: 7, nome: 'Rossini', cpf: cpfCliente },
-        { idCliente: 8, nome: 'Harvey', cpf: cpfCliente },
-        { idCliente: 9, nome: 'Batman', cpf: cpfCliente },
-    ];
+            newListIdCliente.push(idCliente); // Adiciono o idCliente no array copia
+            setIdClienteSelecionados(newListIdCliente); // Atualiza meu estado
+            //setIdClienteSelecionados([...idClienteSelecionados, idCliente]); SPREAD OPERATOR, utilizando está linha podemos
+            //                                                              retirar as linhas 49 e 51.
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
 
 
     return (
         <div id="listCustomers-block">
 
-            <div className="menuNavBar-block" >
-                {/* Componente Menu NavBar */}
-            </div>
+            <MenuNavBar
+                urlExit="/"
+                urlRegistration="cadastroCliente"
+            />
 
             <div className="table-listCustomers-block">
-                <DataGrid getRowId={(rows) => rows.idCliente} rows={rows} columns={columns} pageSize={7} checkboxSelection />
+                <DataGrid getRowId={(rows) => rows.idCliente} rows={rows} columns={columns} pageSize={7} checkboxSelection onCellClick={addIdClienteSelected} />
             </div>
 
         </div>

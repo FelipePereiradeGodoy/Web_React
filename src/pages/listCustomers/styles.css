@@ -8,17 +8,80 @@
 }
 
 .table-listCustomers-block {
-    background: pink;
-    height: 500px;
+    background: rgb(255,255,240);
+    height: 90%;
     width: 100%;
+    border: none;
+    margin: 0%;
+    padding: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .menuNavBar-block {
-    background: blue;
-    height: 20%;
+    background: rgba(28,28,28, 0.8);
+    height: 10%;
     width: 100%;
+    margin: 0%;
+    padding: 0%;
+    border: none;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-menuNavBar {
+    width: 3%;
+    height: 50%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+#btn-menuNavBar-exit {
+    position: relative;
+}
+
+#btn-menuNavBar-registration {
+    position: relative;
+}
+
+#btn-menuNavBar-edit {
+    position: relative;
+
+}
+ 
+#btn-menuNavBar-delete {
+    position: relative;
+    justify-self: flex-start;
+}
+
+.icons-menuNavBar {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 8px;
+}
+
+#icons-menuNavBar-exit {
+    background-color: rgb(105,89,205);
+}
+
+#icons-menuNavBar-registration {
+    background-color: rgba(0,255,0);
+}
+
+#icons-menuNavBar-registration:hover {
+    background-color: rgba(50,205,50);
+}
+
+#icons-menuNavBar-edit {
+    background-color: rgb(255, 166, 0);
+}
+
+#icons-menuNavBar-delete {
+    background-color: red;
 }
