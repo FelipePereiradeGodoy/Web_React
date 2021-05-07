@@ -5,27 +5,18 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-
-const MenuNavBar = ({ ...rest }) => {
+const MenuNavBar = ({ handleDelete, handleEdit, urlExit, urlRegistration, ...rest }) => {
     const history = useHistory();
 
     const handleExit = () => {
-        const { urlExit } = rest;
         history.push(urlExit);
     }
 
     const handleRegistration = () => {
-        const { urlRegistration } = rest;
         history.push(urlRegistration);
     }
 
-    const handleEdit = () => {
 
-    }
-
-    const handleDelete = () => {
-
-    }
 
 
     return (

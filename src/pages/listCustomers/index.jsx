@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { format } from 'date-fns';
 import MenuNavBar from '../../components/menuNavBar/index';
@@ -19,7 +19,7 @@ const columns = [
 
 const ListCustomers = () => {
     const [rows, setRows] = useState([]);
-    const [idClienteSelecionados, setIdClienteSelecionados] = useState([]);
+    const [listCustomersDelete, setListCustomersDelete] = useState([]);
 
 
     useEffect(() => {
@@ -41,20 +41,50 @@ const ListCustomers = () => {
     }, []);
 
 
+
     const addIdClienteSelected = (cellSelection) => {
         try {
             const { idCliente } = cellSelection.row; //pego o id da linha selecionada
-            const newListIdCliente = idClienteSelecionados.slice(); // copio o array do meu state que está inicialmente vazio
 
-            newListIdCliente.push(idCliente); // Adiciono o idCliente no array copia
-            setIdClienteSelecionados(newListIdCliente); // Atualiza meu estado
-            //setIdClienteSelecionados([...idClienteSelecionados, idCliente]); SPREAD OPERATOR, utilizando está linha podemos
-            //                                                              retirar as linhas 49 e 51.
+            const newListCustomersDelete = listCustomersDelete.slice(); // copio o array do meu state que está inicialmente vazio
+
+            newListCustomersDelete.push(idCliente); // Adiciono o idCliente no array copia
+            setListCustomersDelete(newListCustomersDelete); // Atualiza meu estado
+
         } catch (error) {
             console.log(error);
         }
 
     }
+
+    const handleEdit = useCallback(() => {
+        console.log("edit");
+    });
+
+    const handleDelete = useCallback(() => {
+        //const newListCustomersDelete = listCustomersDelete.slice();
+        //const newRows = [];
+        let f = [];
+        let flag = 0;
+
+        listCustomersDelete.filter(idCliente => {
+            console.log("==================");
+            rows.find(element => {
+                console.log("ementeId: " + element.idCliente);
+                console.log("LisidCliente: " + idCliente);
+                console.log("flag: " + flag);
+                if ((element.idCliente !== idCliente) && (flag == 0)) {
+                    flag = flag + 1;
+                    f.push(element.idCliente);
+                }
+            });
+            flag = 0;
+        });
+
+        console.log(f);
+
+
+    }, [listCustomersDelete]);
 
 
 
@@ -64,6 +94,7 @@ const ListCustomers = () => {
             <MenuNavBar
                 urlExit="/"
                 urlRegistration="cadastroCliente"
+                handleDelete={handleDelete}
             />
 
             <div className="table-listCustomers-block">
